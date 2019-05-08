@@ -7,6 +7,7 @@ const typeDefs = gql`
     # Queries for the current user
     me: User
   }
+
   type Launch {
     id: ID!
     site: String
@@ -14,6 +15,7 @@ const typeDefs = gql`
     rocket: Rocket
     isBooked: Boolean!
   }
+
   type Rocket {
     id: ID!
     name: String
@@ -35,6 +37,7 @@ const typeDefs = gql`
     SMALL
     LARGE
   }
+
   type Mutation {
     # if false, booking trips failed -- check errors
     bookTrips(launchIds: [ID]!): TripUpdateResponse!
@@ -44,6 +47,7 @@ const typeDefs = gql`
 
     login(email: String): String # login token
   }
+
   type TripUpdateResponse {
     success: Boolean!
     message: String
