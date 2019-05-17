@@ -6,6 +6,7 @@ import Launches from './launches';
 import Cart from './cart';
 import Profile from './profile';
 import { Footer, PageContainer } from '../components';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
 export default function Pages() {
   return (
