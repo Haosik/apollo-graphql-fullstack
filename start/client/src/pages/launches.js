@@ -29,6 +29,7 @@ const GET_LAUNCHES = gql`
       }
     }
   }
+  ${LAUNCH_TILE_DATA}
 `;
 
 export default function Launches() {
