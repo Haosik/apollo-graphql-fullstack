@@ -19,6 +19,7 @@ const GET_MY_TRIPS = gql`
 `;
 
 export default function Profile() {
+  // !!! default fetchPolicy is "cache-first" !!!
   return (
     <Query query={GET_MY_TRIPS} fetchPolicy="network-only">
       {({ data, loading, error }) => {

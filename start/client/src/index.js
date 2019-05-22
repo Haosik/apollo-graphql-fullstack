@@ -10,12 +10,24 @@ import gql from 'graphql-tag';
 import Pages from './pages';
 
 const cache = new InMemoryCache();
-const link = new HttpLink({
-  uri: 'https://server-adl1f8gwo.now.sh/'
-});
+// const link = new HttpLink({
+//   uri: 'https://server-adl1f8gwo.now.sh/'
+// });
 const client = new ApolloClient({
   cache,
-  link
+  link: new HttpLink({
+    uri: 'https://server-adl1f8gwo.now.sh/',
+    headers: {
+      authorization: localStorage.getItem('token')
+    }
+  })
+});
+
+cache.writeData({
+  data: {
+    isLoggedIn: !!localStorage.getItem('token'),
+    cartItems: []
+  }
 });
 
 ReactDOM.render(
