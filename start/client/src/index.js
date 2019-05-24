@@ -12,6 +12,7 @@ import Pages from './pages';
 import Login from './pages/login';
 import injectStyles from './styles';
 
+// Local state query with @client
 const IS_LOGGED_IN = gql`
   query IsUserLoggedIn {
     isLoggedIn @client
@@ -19,9 +20,7 @@ const IS_LOGGED_IN = gql`
 `;
 
 const cache = new InMemoryCache();
-// const link = new HttpLink({
-//   uri: 'https://server-adl1f8gwo.now.sh/'
-// });
+
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
@@ -34,6 +33,7 @@ const client = new ApolloClient({
   resolvers
 });
 
+// Default local state's data (initialState)
 cache.writeData({
   data: {
     isLoggedIn: !!localStorage.getItem('token'),
