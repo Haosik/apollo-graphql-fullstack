@@ -19,12 +19,15 @@ const IS_LOGGED_IN = gql`
   }
 `;
 
+// const serverLink = 'https://server-adl1f8gwo.now.sh/';
+const serverLink = 'http://localhost:4000/';
+
 const cache = new InMemoryCache();
 
 const client = new ApolloClient({
   cache,
   link: new HttpLink({
-    uri: 'https://server-adl1f8gwo.now.sh/',
+    uri: serverLink,
     headers: {
       authorization: localStorage.getItem('token')
     }
