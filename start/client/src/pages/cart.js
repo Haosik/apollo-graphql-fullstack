@@ -19,6 +19,7 @@ export default function Cart() {
         if (loading) return <Loading />;
         if (error) return <p>ERROR: error.message</p>;
 
+        
         return (
           <Fragment>
             <Header>My cart</Header>
